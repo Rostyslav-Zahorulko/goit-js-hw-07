@@ -1,5 +1,8 @@
 const inputRef = document.querySelector('#validation-input');
 
+inputRef.addEventListener('blur', handleInputBlur);
+inputRef.addEventListener('focus', handleInputFocus);
+
 function handleInputBlur(event) {
   const dataLength = event.target.getAttribute('data-length');
 
@@ -10,4 +13,6 @@ function handleInputBlur(event) {
   }
 }
 
-inputRef.addEventListener('blur', handleInputBlur);
+function handleInputFocus() {
+  inputRef.classList.remove('valid') || inputRef.classList.remove('invalid');
+}
